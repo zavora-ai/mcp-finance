@@ -1,0 +1,109 @@
+server_id = "mcp_finance"
+display_name = "Finance & Accounting"
+version = "1.0.0"
+domain = "finance"
+sdk_version = "0.1.0"
+risk_level = "high"
+writes_allowed = "gated"
+transports = ["stdio"]
+credentials = ["vault://quickbooks-token", "vault://xero-token"]
+governance_gates = []
+environments = ["development", "staging", "production"]
+
+[[tools]]
+name = "list_invoices"
+description = "List invoices with optional status filter (paid, unpaid, overdue, draft)"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = ["vault://quickbooks-token", "vault://xero-token"]
+
+[[tools]]
+name = "get_invoice"
+description = "Get invoice details by ID"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = ["vault://quickbooks-token", "vault://xero-token"]
+
+[[tools]]
+name = "create_invoice"
+description = "Create a new invoice"
+risk_class = "internal_write"
+requires_approval = false
+credential_bindings = ["vault://quickbooks-token", "vault://xero-token"]
+
+[[tools]]
+name = "list_expenses"
+description = "List expenses/bills with optional category filter"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = ["vault://quickbooks-token", "vault://xero-token"]
+
+[[tools]]
+name = "create_expense"
+description = "Record a new expense"
+risk_class = "internal_write"
+requires_approval = false
+credential_bindings = ["vault://quickbooks-token", "vault://xero-token"]
+
+[[tools]]
+name = "list_accounts"
+description = "List chart of accounts"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = ["vault://quickbooks-token", "vault://xero-token"]
+
+[[tools]]
+name = "get_account_balance"
+description = "Get account balance by account ID"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = ["vault://quickbooks-token", "vault://xero-token"]
+
+[[tools]]
+name = "list_transactions"
+description = "List recent transactions with optional account filter"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = ["vault://quickbooks-token", "vault://xero-token"]
+
+[[tools]]
+name = "create_journal_entry"
+description = "Create a journal entry (debit/credit). Debits must equal credits."
+risk_class = "financial_action"
+requires_approval = true
+credential_bindings = ["vault://quickbooks-token", "vault://xero-token"]
+
+[[tools]]
+name = "reconcile_transaction"
+description = "Reconcile a transaction by matching it to an invoice or expense"
+risk_class = "internal_write"
+requires_approval = false
+credential_bindings = ["vault://quickbooks-token", "vault://xero-token"]
+
+[[tools]]
+name = "get_profit_loss"
+description = "Get Profit & Loss report for a date range"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = ["vault://quickbooks-token", "vault://xero-token"]
+
+[[tools]]
+name = "get_balance_sheet"
+description = "Get balance sheet as of a specific date"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = ["vault://quickbooks-token", "vault://xero-token"]
+
+[[tools]]
+name = "get_cashflow"
+description = "Get cash flow summary for a date range"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = ["vault://quickbooks-token", "vault://xero-token"]
+
+[[tools]]
+name = "get_tax_summary"
+description = "Get tax liability summary for a date range"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = ["vault://quickbooks-token", "vault://xero-token"]

@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" fill="none">
+  <rect width="900" height="500" rx="12" fill="#1a1a2e"/>
+
+  <!-- Title -->
+  <text x="450" y="40" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="20" font-weight="bold" fill="#e0e0e0">mcp-finance — Architecture</text>
+
+  <!-- MCP Clients -->
+  <rect x="50" y="80" width="180" height="140" rx="8" fill="#16213e" stroke="#0f3460" stroke-width="2"/>
+  <text x="140" y="110" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="14" font-weight="bold" fill="#4fc3f7">MCP Clients</text>
+  <text x="140" y="140" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#b0bec5">Claude Desktop</text>
+  <text x="140" y="160" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#b0bec5">ADK Agents</text>
+  <text x="140" y="180" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#b0bec5">VS Code / Cursor</text>
+  <text x="140" y="200" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#b0bec5">Custom Apps</text>
+
+  <!-- Arrow: Clients → Server -->
+  <path d="M230 150 L320 150" stroke="#4fc3f7" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="275" y="140" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#78909c">stdio/HTTP</text>
+
+  <!-- MCP Server -->
+  <rect x="320" y="60" width="260" height="380" rx="8" fill="#1a1a3e" stroke="#533483" stroke-width="2"/>
+  <text x="450" y="90" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="15" font-weight="bold" fill="#ce93d8">mcp-finance</text>
+  <text x="450" y="110" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#78909c">14 Tools • Multi-Backend</text>
+
+  <!-- Tool groups -->
+  <rect x="340" y="125" width="220" height="60" rx="4" fill="#263238" stroke="#455a64" stroke-width="1"/>
+  <text x="350" y="142" font-family="Inter,system-ui,sans-serif" font-size="10" font-weight="bold" fill="#81c784">Invoicing</text>
+  <text x="350" y="158" font-family="monospace" font-size="9" fill="#a5d6a7">list_invoices • get_invoice</text>
+  <text x="350" y="174" font-family="monospace" font-size="9" fill="#a5d6a7">create_invoice</text>
+
+  <rect x="340" y="195" width="220" height="60" rx="4" fill="#263238" stroke="#455a64" stroke-width="1"/>
+  <text x="350" y="212" font-family="Inter,system-ui,sans-serif" font-size="10" font-weight="bold" fill="#ffb74d">Expenses &amp; Accounts</text>
+  <text x="350" y="228" font-family="monospace" font-size="9" fill="#ffcc80">list_expenses • create_expense</text>
+  <text x="350" y="244" font-family="monospace" font-size="9" fill="#ffcc80">list_accounts • get_account_balance</text>
+
+  <rect x="340" y="265" width="220" height="60" rx="4" fill="#263238" stroke="#455a64" stroke-width="1"/>
+  <text x="350" y="282" font-family="Inter,system-ui,sans-serif" font-size="10" font-weight="bold" fill="#ef9a9a">Ledger &amp; Reconciliation</text>
+  <text x="350" y="298" font-family="monospace" font-size="9" fill="#ef9a9a">list_transactions • create_journal_entry</text>
+  <text x="350" y="314" font-family="monospace" font-size="9" fill="#ef9a9a">reconcile_transaction</text>
+
+  <rect x="340" y="335" width="220" height="60" rx="4" fill="#263238" stroke="#455a64" stroke-width="1"/>
+  <text x="350" y="352" font-family="Inter,system-ui,sans-serif" font-size="10" font-weight="bold" fill="#90caf9">Reports</text>
+  <text x="350" y="368" font-family="monospace" font-size="9" fill="#90caf9">get_profit_loss • get_balance_sheet</text>
+  <text x="350" y="384" font-family="monospace" font-size="9" fill="#90caf9">get_cashflow • get_tax_summary</text>
+
+  <!-- Arrows: Server → Backends -->
+  <path d="M580 150 L670 110" stroke="#ce93d8" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M580 250 L670 250" stroke="#ce93d8" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M580 350 L670 390" stroke="#ce93d8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Backends -->
+  <rect x="670" y="70" width="180" height="70" rx="8" fill="#1b5e20" stroke="#4caf50" stroke-width="2"/>
+  <text x="760" y="100" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="bold" fill="#c8e6c9">QuickBooks</text>
+  <text x="760" y="120" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#a5d6a7">Online REST API</text>
+
+  <rect x="670" y="210" width="180" height="70" rx="8" fill="#0d47a1" stroke="#42a5f5" stroke-width="2"/>
+  <text x="760" y="240" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="bold" fill="#bbdefb">Xero</text>
+  <text x="760" y="260" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#90caf9">api.xro/2.0</text>
+
+  <rect x="670" y="355" width="180" height="70" rx="8" fill="#4a148c" stroke="#ab47bc" stroke-width="2"/>
+  <text x="760" y="385" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="bold" fill="#e1bee7">Local Ledger</text>
+  <text x="760" y="405" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#ce93d8">In-Memory (Demo)</text>
+
+  <!-- Footer -->
+  <text x="450" y="470" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#546e7a">Backend auto-detected from environment variables • No keys = Local Ledger</text>
+
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ce93d8"/>
+    </marker>
+  </defs>
+</svg>
