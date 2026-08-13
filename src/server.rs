@@ -132,7 +132,7 @@ pub struct FinanceServer {
     pub backend: Arc<dyn FinanceBackend>,
 }
 
-#[tool_router(server_handler)]
+#[tool_router]
 impl FinanceServer {
     #[tool(description = "List invoices with optional status filter (paid, unpaid, overdue, draft)")]
     async fn list_invoices(&self, Parameters(input): Parameters<ListInvoicesInput>) -> String {
@@ -258,4 +258,11 @@ impl HealthCheck for FinanceServer {
             Err(e) => HealthStatus { healthy: false, message: Some(format!("Backend error: {e}")), latency_ms: None },
         }
     }
+}
+
+adk_mcp_sdk::mcp_2026_server! {
+    server: FinanceServer,
+    task_tools: ["reconcile_transaction"],
+    approval_tools: ["create_invoice", "create_expense", "create_journal_entry", "reconcile_transaction"],
+    cache_ttl_ms: 60_000,
 }
